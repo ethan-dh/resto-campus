@@ -1,0 +1,15 @@
+# Sécurité : interdire l'accès aux fichiers sensibles
+<Files "*.php">
+    Require all granted
+</Files>
+
+# Interdire l'accès aux fichiers de configuration
+<Files "config/*">
+    Order deny,allow
+    Deny from all
+</Files>
+
+# Configuration PHP
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300

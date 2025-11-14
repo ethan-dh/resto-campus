@@ -1,0 +1,93 @@
+/* Styles personnalisés pour RestoCampus */
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #28a745 !important;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+.alert {
+    border-radius: 0.375rem;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #adb5bd;
+}
+
+.footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles pour les cartes de plats */
+.plat-card {
+    transition: transform 0.2s;
+}
+
+.plat-card:hover {
+    transform: translateY(-5px);
+}
+
+.badge-disponible {
+    background-color: #28a745;
+}
+
+.badge-indisponible {
+    background-color: #dc3545;
+}
+
+/* Styles pour le panier */
+.panier-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+}
