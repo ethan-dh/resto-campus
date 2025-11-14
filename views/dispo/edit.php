@@ -2,9 +2,9 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow">
-                <div class="card-header bg-success text-white">
+                <div class="card-header bg-primary text-white">
                     <h5 class="mb-0">
-                        <i class="fas fa-calendar-plus"></i> Ajouter une Disponibilité
+                        <i class="fas fa-calendar-edit"></i> Modifier une Disponibilité
                     </h5>
                 </div>
                 <div class="card-body">
@@ -20,7 +20,7 @@
                         </div>
                     <?php endif; ?>
 
-                    <form method="post" action="/resto-campus/index.php?controller=dispo&action=add" data-validate="true">
+                    <form method="post" action="/resto-campus/index.php?controller=dispo&action=edit&id=<?php echo $disponibilite['idDispo']; ?>" data-validate="true">
                         <div class="mb-3">
                             <label for="idArticle" class="form-label">
                                 <i class="fas fa-utensils"></i> Article *
@@ -29,7 +29,7 @@
                                 <option value="">Sélectionnez un article</option>
                                 <?php foreach ($articles as $article): ?>
                                     <option value="<?php echo $article['idArticle']; ?>"
-                                            <?php echo ($_POST['idArticle'] ?? '') == $article['idArticle'] ? 'selected' : ''; ?>>
+                                            <?php echo $disponibilite['idArticle'] == $article['idArticle'] ? 'selected' : ''; ?>>
                                         <?php echo htmlspecialchars($article['nom']); ?>
                                     </option>
                                 <?php endforeach; ?>
@@ -42,7 +42,7 @@
                                     <i class="fas fa-calendar"></i> Date et heure de début *
                                 </label>
                                 <input type="datetime-local" class="form-control" id="dateHeureDebut" name="dateHeureDebut"
-                                       value="<?php echo $_POST['dateHeureDebut'] ?? ''; ?>" required>
+                                       value="<?php echo date('Y-m-d\TH:i', strtotime($disponibilite['dateHeureDebut'])); ?>" required>
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -50,7 +50,7 @@
                                     <i class="fas fa-calendar"></i> Date et heure de fin *
                                 </label>
                                 <input type="datetime-local" class="form-control" id="dateHeureFin" name="dateHeureFin"
-                                       value="<?php echo $_POST['dateHeureFin'] ?? ''; ?>" required>
+                                       value="<?php echo date('Y-m-d\TH:i', strtotime($disponibilite['dateHeureFin'])); ?>" required>
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                                 <i class="fas fa-boxes"></i> Quantité maximale *
                             </label>
                             <input type="number" class="form-control" id="quantiteMax" name="quantiteMax"
-                                   value="<?php echo $_POST['quantiteMax'] ?? ''; ?>" min="1" required>
+                                   value="<?php echo $disponibilite['quantiteMax']; ?>" min="1" required>
                             <div class="form-text">Nombre maximum de portions disponibles</div>
                         </div>
 
@@ -67,8 +67,8 @@
                             <a href="/resto-campus/index.php?controller=dispo&action=list" class="btn btn-secondary">
                                 <i class="fas fa-arrow-left"></i> Retour
                             </a>
-                            <button type="submit" class="btn btn-success">
-                                <i class="fas fa-save"></i> Créer la disponibilité
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Modifier la disponibilité
                             </button>
                         </div>
                     </form>
